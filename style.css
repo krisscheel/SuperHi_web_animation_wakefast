@@ -9,10 +9,6 @@ body {
   color: #000000;
 }
 
-main {
-  border: 10px solid red;
-}
-
 h1 {
   font-size: 24px;
   font-weight: 700;
@@ -67,6 +63,28 @@ h2 {
 figure {
   max-width: 700px;
   margin: 0 auto 0 auto;
+  position: relative;
+}
+
+figcaption {
+  position: absolute;
+  top: 70%;
+  left: 100%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section.salmon figcaption {
+  left: 0;
+}
+
+figcaption img {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+figcaption.in-view img {
+  opacity: 1;
 }
 
 
