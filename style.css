@@ -106,4 +106,19 @@ figcaption img:nth-child(3) {
   transition-delay: 1.5s;
 }
 
+@media (prefers-reduced-motion: no-preference) and (min-width: 600px) {
+  body, a, a:hover {
+    cursor: none;
+  }
+  div.cursor {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 20px;
+    height: 20px;
+    background-image: url(cursor.svg);
+    pointer-events: none;
+  }
+}
+
 
