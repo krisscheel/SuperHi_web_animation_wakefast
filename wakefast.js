@@ -1,7 +1,5 @@
 const mainTag = document.querySelector("main")
-
 const bodyTag = document.querySelector("body")
-
 const figcaptions = document.querySelectorAll("figcaption")
 const cursor = document.querySelector("div.cursor")
 
@@ -63,10 +61,27 @@ figcaptions.forEach(caption => {
 
   changeScroll()
 
+  let cursorCurrentX = 0
+  let cursorCurrentY = 0
+  let cursorAimX = 0
+  let cursorAimY = 0
+
+  const changeCursor = function () {
+
+    cursorCurrentX = cursorCurrentX + (cursorAimX - cursorCurrentX) * 0.1
+    cursorCurrentY = cursorCurrentY + (cursorAimY - cursorCurrentY) * 0.1
+
+    cursor.style.left = cursorCurrentX + "px"
+    cursor.style.top = cursorCurrentY + "px"
+
+    requestAnimationFrame(changeCursor)
+  }
+
   document.addEventListener("mousemove", function (event) {
-    cursor.style.left = event.pageX + "px"
-    cursor.style.top = event.pageY + "px"
+    cursorAimX = event.pageX 
+    cursorAimY = event.pageY 
   })
 
+  changeCursor()
 }
 
