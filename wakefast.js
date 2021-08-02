@@ -2,6 +2,7 @@ const mainTag = document.querySelector("main")
 const bodyTag = document.querySelector("body")
 const figcaptions = document.querySelectorAll("figcaption")
 const cursor = document.querySelector("div.cursor")
+const cursorOuter = document.querySelector("div.cursor-outer") 
 
 const motion = window.matchMedia("(prefers-reduced-motion: no-preference)")
 const large = window.matchMedia("(min-width: 600px)")
@@ -63,6 +64,8 @@ figcaptions.forEach(caption => {
 
   let cursorCurrentX = 0
   let cursorCurrentY = 0
+  let cursorOuterCurrentX = 0
+  let cursorOuterCurrentY = 0
   let cursorAimX = 0
   let cursorAimY = 0
 
@@ -73,6 +76,13 @@ figcaptions.forEach(caption => {
 
     cursor.style.left = cursorCurrentX + "px"
     cursor.style.top = cursorCurrentY + "px"
+
+    cursorOuterCurrentX = cursorOuterCurrentX + (cursorAimX - cursorOuterCurrentX) * 0.05
+    cursorOuterCurrentY = cursorOuterCurrentY + (cursorAimY - cursorOuterCurrentY) * 0.05
+
+    cursorOuter.style.left = cursorOuterCurrentX + "px"
+
+    cursorOuter.style.top = cursorOuterCurrentY + "px"
 
     requestAnimationFrame(changeCursor)
   }
