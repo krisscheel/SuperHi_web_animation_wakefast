@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 body {
   font-family: Pacifico;
   font-size: 24px;
@@ -94,6 +103,10 @@ figcaption img {
   transition: opacity 0.5s 0.5s;
 }
 
+div.cursor, div.cursor-outer {
+  display: none;
+}
+
 figcaption.in-view img {
   opacity: 1;
 }
@@ -112,6 +125,7 @@ figcaption img:nth-child(3) {
   }
 
   div.cursor {
+    display: block;
     position: absolute;
     top: 32px;
     left: 32px;
@@ -123,6 +137,7 @@ figcaption img:nth-child(3) {
   }
 
   div.cursor-outer {
+    display: block;
     position: absolute;
     top: 32px;
     left: 32px;
@@ -132,6 +147,7 @@ figcaption img:nth-child(3) {
     background-size: 100px 100px;
     pointer-events: none;
     transform: translate(-50%, -50%);
+    animation: rotate 20s infinite linear;
   }
 
 }
